@@ -7,7 +7,6 @@ import java.net.*;
 import java.io.*;
 import java.util.Scanner;
 
-
 public class RadioB{
     public static void main(String[] args){
         try {
@@ -34,11 +33,19 @@ public class RadioB{
             System.out.println("[OK] ]");
             
             //Aguarda a mensagem de retorno do servidor
-            byte[] retorno = new byte[50];
+            byte[] retorno = new byte[144];
             System.out.print("[ Aguardando mensagem de resposta ....");
             is.read(retorno);
-            System.out.println("[OK]]");
             String msgRetorno = new String(retorno);
+            System.out.println("[OK]]");
+            if (!msgRetorno.equals(" teste")){
+                
+                System.out.print(msgRetorno);
+                System.out.print("---Dentro do if:");
+                //break;
+            }
+            
+            //String msgRetorno = new String(retorno);
             System.out.println(" Mensagem de retorno: "+msgRetorno);
             
             }while(!texto.equals("#close"));
